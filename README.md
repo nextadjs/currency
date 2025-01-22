@@ -9,7 +9,8 @@ Daily currency exchange rates data sourced from the European Central Bank (ECB),
 - Highly compressed data format for efficient distribution
 
 ## Data Format
-The exchange rates are provided in `data/latest.json` with the following structure:
+
+The exchange rates are provided in `latest.json` with the following structure:
 ```javascript
 {
   "dataAsOf": "2025-01-20",        // ECB reference date
