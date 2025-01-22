@@ -21,7 +21,7 @@ async function main() {
     await fs.mkdir(path.dirname(OUTPUT_FILE), { recursive: true });
 
     // Write to file
-    await fs.writeFile(OUTPUT_FILE, JSON.stringify(conversionData, null, 2));
+    await fs.writeFile(OUTPUT_FILE, JSON.stringify(conversionData));
 
     console.log('Successfully updated currency conversion rates');
   } catch (error) {
