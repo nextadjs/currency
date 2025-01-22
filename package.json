@@ -3,15 +3,19 @@
   "private": true,
   "version": "1.0.0",
   "description": "Daily currency conversion rates from ECB",
-  "main": "index.js",
   "scripts": {
     "build": "tsc",
     "update": "ts-node src/index.ts",
     "test": "vitest"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Kai Miyamoto",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nextadjs/currency.git"
+  },
+  "homepage": "https://github.com/nextadjs/currency.git",
   "devDependencies": {
     "@types/node": "^22.10.7",
     "@types/xml2js": "^0.4.14",
