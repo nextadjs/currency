@@ -28,7 +28,7 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --quiet data/latest.json || echo "has_changes=true" >> $GITHUB_OUTPUT
+          git diff --quiet latest.json || echo "has_changes=true" >> $GITHUB_OUTPUT
 
       - name: Configure Git
         if: steps.check_changes.outputs.has_changes == 'true'

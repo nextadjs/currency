@@ -3,7 +3,7 @@ import path from 'path';
 import { convertECBXmlToJson } from './converter';
 
 const ECB_URL = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml';
-const OUTPUT_FILE = path.join(process.cwd(), '', 'latest.json');
+const OUTPUT_FILE = path.join(process.cwd(), 'latest.json');
 
 async function main() {
   try {
