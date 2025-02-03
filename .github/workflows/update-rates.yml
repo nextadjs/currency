@@ -33,7 +33,7 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --quiet latest.json || echo "has_changes=true" >> $GITHUB_OUTPUT
+          git diff --quiet latest.json latest.min.json || echo "has_changes=true" >> $GITHUB_OUTPUT
 
       - name: Configure Git
         if: steps.check_changes.outputs.has_changes == 'true'
@@ -58,7 +58,7 @@ jobs:
       - name: Commit and push changes
         if: steps.check_changes.outputs.has_changes == 'true'
         run: |
-          git add latest.json package.json
+          git add latest.json latest.min.json package.json
           git commit -m "chore: update currency rates [skip ci]"
           git tag v${{ steps.version.outputs.new_version }}
           git push

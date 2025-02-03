@@ -42,3 +42,14 @@ export async function convertECBXmlToJson(
     conversions,
   };
 }
+
+export function createMinimalUsdRates(data: CurrencyConversionData) {
+  const { dataAsOf, generatedAt, conversions } = data;
+  return {
+    dataAsOf,
+    generatedAt,
+    rates: {
+      USD: conversions['USD']
+    }
+  };
+}

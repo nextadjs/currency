@@ -1,5 +1,6 @@
 import { expect, describe, it } from "vitest";
-import { convertECBXmlToJson } from "../src/converter";
+import { convertECBXmlToJson, createMinimalUsdRates } from "../src/converter";
+import { CurrencyConversionData } from "../src/types";
 
 describe("converter", () => {
   const createXmlData = (
@@ -92,5 +93,41 @@ describe("converter", () => {
     const result = await convertECBXmlToJson(xml);
 
     expect(result.conversions.EUR.USD.toString()).toMatch(/^\d+\.\d{1,6}$/);
+  });
+});
+
+describe("createMinimalUsdRates", () => {
+  it("creates minimal USD-only rates format", () => {
+    const fullData: CurrencyConversionData = {
+      dataAsOf: "2025-01-20",
+      generatedAt: "2025-01-20T16:00:00.000Z",
+      conversions: {
+        USD: {
+          EUR: 0.957579,
+          USD: 1,
+          JPY: 155.817294,
+        },
+        EUR: {
+          /* ... */
+        },
+        JPY: {
+          /* ... */
+        },
+      },
+    };
+
+    const result = createMinimalUsdRates(fullData);
+
+    expect(result).toEqual({
+      dataAsOf: "2025-01-20",
+      generatedAt: "2025-01-20T16:00:00.000Z",
+      rates: {
+        USD: {
+          EUR: 0.957579,
+          USD: 1,
+          JPY: 155.817294,
+        },
+      },
+    });
   });
 });
