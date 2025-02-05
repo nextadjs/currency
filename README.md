@@ -1,4 +1,4 @@
-# Currency Exchange Rates API v1.0.0
+# Currency Exchange Rates API
 
 Daily currency exchange rates data sourced from the European Central Bank (ECB), providing accurate conversion rates for major world currencies.
 
