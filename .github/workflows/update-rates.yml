@@ -58,6 +58,7 @@ jobs:
       - name: Commit and push changes
         if: steps.check_changes.outputs.has_changes == 'true'
         run: |
+          git pull origin main
           git add latest.json latest.min.json package.json
           git commit -m "chore: update currency rates [skip ci]"
           git tag v${{ steps.version.outputs.new_version }}
