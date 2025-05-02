@@ -1,7 +1,7 @@
 {
   "name": "@nextad/currency",
   "private": true,
-  "version": "1.1.88",
+  "version": "1.1.89",
   "description": "Daily currency conversion rates from ECB",
   "scripts": {
     "build": "tsc",
